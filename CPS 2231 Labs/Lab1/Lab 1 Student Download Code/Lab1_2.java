@@ -18,7 +18,7 @@ public class Lab1_2 {
         
         //>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
     }
-
+    // Don't change the main method.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) { // Loop reads multiple lines
