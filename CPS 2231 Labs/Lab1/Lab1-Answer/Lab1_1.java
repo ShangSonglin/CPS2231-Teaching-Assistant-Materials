@@ -6,21 +6,21 @@ public class Lab1_1 {
     public static String defangIPaddr(String address) {
     //1. Avoid invalid input
     int dotCount = 0;
-    int num = -1;
+    int num = -1; //ensure each part reads as integer
     boolean isValid = true;
 
     for (int i = 0; i < address.length(); i++) {
         char ch = address.charAt(i);
         if (ch == '.') {
             dotCount++;
-            if (dotCount > 3 || num < 0 || num > 255) {
+            if (dotCount > 3 || num < 0 || num > 255) { //ensure no more than 3 dots
                 isValid = false;
                 break;
             }
             num = -1;
         } else if (ch >= '0' && ch <= '9') {
             if (num == -1) num = 0; 
-                num = num * 10 + (ch - '0');
+                num = num * 10 + (ch - '0'); //read intger bit by bit(char bit to integer bit)
                 if (num > 255) { 
                     isValid = false;
                     break;
@@ -31,11 +31,11 @@ public class Lab1_1 {
         }
     }
 
-    if (dotCount != 3 || num < 0 || num > 255) {
+    if (dotCount != 3 || num < 0 || num > 255) { //ensure no less than 3 dots
         isValid = false;
     }
 
-    if (!isValid) {
+    if (!isValid) { //ensure "." rather than other symbols
         return "Invalid IP address.";
     }
     //2. Create a char array to store the defanged IP address
