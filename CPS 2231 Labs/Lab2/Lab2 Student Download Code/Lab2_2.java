@@ -3,6 +3,7 @@ public class Lab2_2 {
 	// TODO: You may add check function in the main method to check the input is valid
     // System.out.print("Invalid Input.");
     // You are not allowed to use exception handling in this question
+    // You are not allowed to use any knowledge you haven't learned in CPS 1231 and CPS 2231
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int row = sc.nextInt();
