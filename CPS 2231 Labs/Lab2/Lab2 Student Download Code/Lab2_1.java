@@ -10,7 +10,7 @@ public class Lab2_1 {
             input.close();
             return;
         }
-        System.out.println("Please enter the position you want to find in Fibonacci: ");
+        // System.out.println("Please enter the position you want to find in Fibonacci: ");
         int n = input.nextInt();
         Fibonacci(n);
     }
