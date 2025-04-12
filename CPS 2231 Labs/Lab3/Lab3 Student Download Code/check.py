@@ -75,12 +75,12 @@ test_cases = {
         },
         {
             "input": "four score and seven\n4\n",
-            "expected": r"Row 1: f r n e\s*Row 2: o s e d v\s*Row 3: u c e\s*Row 4: r o a s n\s*After .+'s testing, Final Encoded String is frneosedvuceroasn",
+            "expected": r"Row 1: f \s r n e\s*Row 2: o s e d v\s*Row 3: u c \s \s e\s*Row 4: r o a s n\s*After .+'s testing, Final Encoded String is f\srneosedvuc\s\seroasn",
             "desc": "Valid input: sentence with 4 rows"
         },
         {
             "input": "hello world!\n3\n",
-            "expected": r"Row 1: h l w l\s*Row 2: e o o d\s*Row 3: l r !\s*After .+'s testing, Final Encoded String is hlwleoodlr!",
+            "expected": r"Row 1: h l w l\s*Row 2: e o o d\s*Row 3: l \s r !\s*After .+'s testing, Final Encoded String is hlwleoodl\sr!",
             "desc": "Valid input: sentence with 3 rows"
         },
         {
@@ -158,20 +158,21 @@ def check_output(output, expected_output, lab, test_case_desc):
     answer_sheet = load_answer_sheet()
 
     if lab == "Lab3_3":
-        try:
-            output_int = int(output.strip())
-        except:
-            console.print(f"\n[bold red]❌ Output is not an integer: {output}[/bold red]")
-            answer_sheet.append({
-                'time': current_time,
-                'lab': lab,
-                'test_case': test_case_desc,
-                'result': 'Failed',
-                'error': f"Output is not an integer: {output}"
-            })
-            save_answer_sheet(answer_sheet)
-            return False
-        if output_int == expected_output:
+        # try:
+        #     output_int = int(output.strip())
+        # except:
+        #     console.print(f"\n[bold red]❌ Output is not an integer: {output}[/bold red]")
+        #     answer_sheet.append({
+        #         'time': current_time,
+        #         'lab': lab,
+        #         'test_case': test_case_desc,
+        #         'result': 'Failed',
+        #         'error': f"Output is not an integer: {output}"
+        #     })
+        #     save_answer_sheet(answer_sheet)
+        #     return False
+        output_int = output.strip();
+        if re.compile(expected_output, re.DOTALL).fullmatch(output):
             console.print(f"\n[bold green]✅ Output is correct: {output_int}[/bold green]")
             answer_sheet.append({
                 'time': current_time,
