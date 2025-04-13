@@ -63,24 +63,20 @@ test_cases = {
         },
         {
             "input": "!\n_\n",
-            "expected": r"After .+'s testing, and are anagrams, which is true",
+            "expected": r"After .+'s testing,  and  are anagrams, which is true",
             "desc": "Valid input: special characters"
         }
     ],
     "Lab3_3": [
         {
-            "input": "abcdefghijklmnopqrstuvwxyz\n3\n",
-            "expected": r"Row 1: a d g j m p s v y\s*Row 2: b e h k n q t w z\s*Row 3: c f i l o r u x\s*After .+'s testing, Final Encoded String is adgjmpsvybehknqtwzcfilorux",
-            "desc": "Valid input: alphabet with 3 rows"
-        },
-        {
+
             "input": "four score and seven\n4\n",
-            "expected": r"Row 1: f r n e\s*Row 2: o s e d v\s*Row 3: u c e\s*Row 4: r o a s n\s*After .+'s testing, Final Encoded String is frneosedvuceroasn",
+            "expected": r"Row 1: f \s r n e\s*Row 2: o s e d v\s*Row 3: u c \s \s e\s*Row 4: r o a s n\s*After .+'s testing, Final Encoded String is f\srneosedvuc\s\seroasn",
             "desc": "Valid input: sentence with 4 rows"
         },
         {
             "input": "hello world!\n3\n",
-            "expected": r"Row 1: h l w l\s*Row 2: e o o d\s*Row 3: l r !\s*After .+'s testing, Final Encoded String is hlwleoodlr!",
+            "expected": r"Row 1: h l w l\s*Row 2: e o o d\s*Row 3: l \s r !\s*After .+'s testing, Final Encoded String is hlwleoodl\sr!",
             "desc": "Valid input: sentence with 3 rows"
         },
         {
@@ -92,7 +88,12 @@ test_cases = {
             "input": "2231-25SP\n-1\n",
             "expected": "Invalid Input.",
             "desc": "Invalid input: negative row count"
-        }
+        },
+        {
+            "input": "abcdefghijklmnopqrstuvwxyz\n3\n",
+            "expected": r"Row 1: a d g j m p s v y\s*Row 2: b e h k n q t w z\s*Row 3: c f i l o r u x\s*After .+'s testing, Final Encoded String is adgjmpsvybehknqtwzcfilorux",
+            "desc": "Valid input: alphabet with 3 rows"
+        },
     ]
 }
 
@@ -158,38 +159,28 @@ def check_output(output, expected_output, lab, test_case_desc):
     answer_sheet = load_answer_sheet()
 
     if lab == "Lab3_3":
-        try:
-            output_int = int(output.strip())
-        except:
-            console.print(f"\n[bold red]❌ Output is not an integer: {output}[/bold red]")
-            answer_sheet.append({
-                'time': current_time,
-                'lab': lab,
-                'test_case': test_case_desc,
-                'result': 'Failed',
-                'error': f"Output is not an integer: {output}"
-            })
-            save_answer_sheet(answer_sheet)
-            return False
-        if output_int == expected_output:
-            console.print(f"\n[bold green]✅ Output is correct: {output_int}[/bold green]")
+        pattern = re.compile(expected_output, re.DOTALL)
+        if pattern.search(output.strip()):
+            console.print(f"\n[bold green]✅ Output is correct: {output}[/bold green]")
             answer_sheet.append({
                 'time': current_time,
                 'lab': lab,
                 'test_case': test_case_desc,
                 'result': 'Passed',
-                'output': output_int
+                'output': output
             })
             save_answer_sheet(answer_sheet)
             return True
         else:
-            console.print(f"\n[bold red]❌ Output is incorrect! Expected {expected_output}, got {output_int}[/bold red]")
+            console.print(f"\n[bold red]❌ Output format is incorrect![/bold red]")
+            console.print(f"Expected pattern: {expected_output}")
+            console.print(f"Actual output: {output}")
             answer_sheet.append({
                 'time': current_time,
                 'lab': lab,
                 'test_case': test_case_desc,
                 'result': 'Failed',
-                'error': f"Expected: {expected_output}, Actual: {output_int}"
+                'error': f"Expected pattern: {expected_output}, Actual: {output}"
             })
             save_answer_sheet(answer_sheet)
             return False
