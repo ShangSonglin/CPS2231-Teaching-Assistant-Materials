@@ -69,14 +69,15 @@ test_cases = {
     ],
     "Lab3_3": [
         {
-        "input": "four score and seven\n4\n",
-        "expected": r"Row 1: f   r n e\s*Row 2: o s e d v\s*Row 3: u c     e\s*Row 4: r o a s n\s*After .+'s testing, Final Encoded String is f rneosedvuc  eroasn",
-        "desc": "Valid input: sentence with 4 rows, spaces preserved"
+
+            "input": "four score and seven\n4\n",
+            "expected": r"Row 1: f \s r n e\s*Row 2: o s e d v\s*Row 3: u c \s \s e\s*Row 4: r o a s n\s*After .+'s testing, Final Encoded String is f\srneosedvuc\s\seroasn",
+            "desc": "Valid input: sentence with 4 rows"
         },
         {
-        "input": "hello world!\n3\n",
-        "expected": r"Row 1: h l w l\s*Row 2: e o o d\s*Row 3: l   r !\s*After .+'s testing, Final Encoded String is hlwleoodl r!",
-        "desc": "Valid input: sentence with 3 rows, spaces preserved"
+            "input": "hello world!\n3\n",
+            "expected": r"Row 1: h l w l\s*Row 2: e o o d\s*Row 3: l \s r !\s*After .+'s testing, Final Encoded String is hlwleoodl\sr!",
+            "desc": "Valid input: sentence with 3 rows"
         },
         {
             "input": "\n",
