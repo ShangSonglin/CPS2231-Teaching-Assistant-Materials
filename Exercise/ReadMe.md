@@ -1,5 +1,6 @@
 # Class Schedule 
 > Unit 8: Multiple Dimensional Arrays
+
 > Unit 9: Class and Object
 
 ## U8
