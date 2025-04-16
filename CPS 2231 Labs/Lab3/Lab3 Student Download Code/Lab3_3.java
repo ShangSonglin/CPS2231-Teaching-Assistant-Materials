@@ -20,7 +20,7 @@ public class Lab3_3{
 	}
 	// Don't change the method name, add signature only
 	// You may copy and paste the output from below directly and change "Li Hua" to your name:
-   //System.out.println("After Li Hua's testing, Final Encoded String is " + encodedStr);
+ //System.out.println("After Li Hua's testing, Final Encoded String is " + encodedStr);
 	// Before print this line, please print the array in format as well
 	public static void encode(String str, int row){
 		
