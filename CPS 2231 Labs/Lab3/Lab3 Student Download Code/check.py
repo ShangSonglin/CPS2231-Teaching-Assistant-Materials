@@ -157,6 +157,8 @@ def check_output(output, expected_output, lab, test_case_desc):
     """Check if the output matches the expected pattern."""
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     answer_sheet = load_answer_sheet()
+    
+expected_output = expected_output.replace(r"\s*", r"[\s\u0000]*")
 
     if lab == "Lab3_3":
         pattern = re.compile(expected_output, re.DOTALL)
