@@ -6,7 +6,8 @@
 ## U8
 8.8.1 8.5, 8.13, 8.28, 8.29
 
-## 4/14/2025: U9
-9.1, 9.2, 9.4 (Without UML Creating)
+## U9
+9.1 (Rectangle), 9.2 (Stock), 9.4 (Random) 
+9.8 (Fan), 9.10 (QuadraticEquation)
 
 
