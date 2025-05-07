@@ -7,7 +7,7 @@ public class Lab5_1 {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the first integer: ");
         String firstInput = input.next();
-		System.out.print("Enter the second value: ");
+		System.out.print("Enter the second value (might be invalid): ");
         String secondInput = input.next();
 		observeWrapper(firstInput, secondInput);
         input.close();
