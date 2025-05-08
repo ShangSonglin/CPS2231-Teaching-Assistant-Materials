@@ -183,7 +183,7 @@ def zip_files(student_id, labs):
     """Zip the Java files and answer sheet into a submission package."""
     console.print(f"\n[bold cyan]********* Zipping Files *********[/bold cyan]")
     timestamp = datetime.now().strftime("%m%d_%H%M")
-    zip_file_name = f"Lab4_{student_id}_{timestamp}.zip"
+    zip_file_name = f"Lab5_{student_id}_{timestamp}.zip"
     files_to_zip = []
     for lab in labs:
         java_file = f"{lab}.java"
