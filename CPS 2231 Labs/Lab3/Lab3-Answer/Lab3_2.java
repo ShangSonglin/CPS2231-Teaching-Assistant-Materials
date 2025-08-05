@@ -64,6 +64,25 @@ public class Lab3_2{
 				}
 				}
 			return true;
+		// Or you can you int[] array
+		// public boolean isAnagram(String s, String t) {
+		// if (s.length() != t.length()) return false;
 		
+		// int[] count = new int[26];  // 统计字母频次，假设只考虑小写字母
+		
+		// for (int i = 0; i < s.length(); i++) {
+		// count[s.charAt(i) - 'a']++;  // s中对应字符计数加一
+		// count[t.charAt(i) - 'a']--;  // t中对应字符计数减一
+		// }
+		
+		// // 最后判断每个字母计数是否都为0
+		// for (int c : count) {
+		// if (c != 0) return false;
+		// }
+		
+		// return true;
+}
+
 	}
 }
+
